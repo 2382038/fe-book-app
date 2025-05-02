@@ -26,7 +26,7 @@ const Reviews = () => {
   const fetchBooks = async () => {
     try {
       const response = await bookService.getAllBooks();
-      setBooks(response.data.map(book => ({ id: book.id, title: book.title })));
+      setBooks(response.data.map(book => ({ id: parseInt(book.id), title: book.title })));
     } catch (error) {
       console.error('Error fetching books:', error);
       setError('Failed to load books. Please try again later.');

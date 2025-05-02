@@ -22,15 +22,11 @@ const Favorites = () => {
     try {
       setLoading(true);
       setError(null);
-      // Get favorite IDs
       const favoritesResponse = await favoriteService.getFavorites();
       const favoriteIds = favoritesResponse.data.map((fav: FavoriteResponse) => fav.book_id);
-
-      // Fetch complete book data for each favorite
       const bookPromises = favoriteIds.map(id => bookService.getBook(id));
       const bookResponses = await Promise.all(bookPromises);
       const books = bookResponses.map(response => response.data);
-
       setFavorites(books);
     } catch (error) {
       console.error('Error fetching favorites:', error);

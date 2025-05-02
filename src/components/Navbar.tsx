@@ -1,19 +1,5 @@
-import {
-  Disclosure,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems
-} from "@headlessui/react";
-import { BellIcon } from "@heroicons/react/16/solid";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from "../utils/AuthProvider";
-
-const navigation = [{ name: "Post", to: "/posts", current: false }];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const Navbar = () => {
   const { logout } = useAuth();

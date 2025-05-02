@@ -1,5 +1,19 @@
+import {
+  Disclosure,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems
+} from "@headlessui/react";
+import { BellIcon } from "@heroicons/react/16/solid";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from "../utils/AuthProvider";
+
+const navigation = [{ name: "Post", to: "/posts", current: false }];
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const Navbar = () => {
   const { logout } = useAuth();
@@ -25,39 +39,41 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex items-center space-x-8">
-            <Link
-              to="/books"
-              className={`${
-                isActive('/books')
-                  ? 'text-[#6366F1] border-[#6366F1]'
-                  : 'text-gray-500 border-transparent hover:text-[#6366F1]'
-              } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-            >
-              Books
-            </Link>
-            <Link
-              to="/reviews"
-              className={`${
-                isActive('/reviews')
-                  ? 'text-[#6366F1] border-[#6366F1]'
-                  : 'text-gray-500 border-transparent hover:text-[#6366F1]'
-              } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-            >
-              Reviews
-            </Link>
-            <Link
-              to="/favorites"
-              className={`${
-                isActive('/favorites')
-                  ? 'text-[#6366F1] border-[#6366F1]'
-                  : 'text-gray-500 border-transparent hover:text-[#6366F1]'
-              } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-            >
-              Favorites
-            </Link>
+            <div className="flex space-x-8">
+              <Link
+                to="/books"
+                className={`${
+                  isActive('/books')
+                    ? 'text-[#6366F1] border-[#6366F1]'
+                    : 'text-gray-500 border-transparent hover:text-[#6366F1]'
+                } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+              >
+                Books
+              </Link>
+              <Link
+                to="/reviews"
+                className={`${
+                  isActive('/reviews')
+                    ? 'text-[#6366F1] border-[#6366F1]'
+                    : 'text-gray-500 border-transparent hover:text-[#6366F1]'
+                } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+              >
+                Reviews
+              </Link>
+              <Link
+                to="/favorites"
+                className={`${
+                  isActive('/favorites')
+                    ? 'text-[#6366F1] border-[#6366F1]'
+                    : 'text-gray-500 border-transparent hover:text-[#6366F1]'
+                } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+              >
+                Favorites
+              </Link>
+            </div>
             <button
               onClick={handleLogout}
-              className="text-gray-500 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              className="ml-4 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
               Logout
             </button>

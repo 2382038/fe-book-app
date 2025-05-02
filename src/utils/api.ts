@@ -23,8 +23,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-
-
 // Auth API
 export const authApi = {
   login: (credentials: { email: string; password: string }) =>

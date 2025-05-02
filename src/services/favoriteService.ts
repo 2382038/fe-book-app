@@ -8,7 +8,7 @@ export interface FavoriteResponse {
 
 export const favoriteService = {
   getFavorites: () => api.get<FavoriteResponse[]>('/api/favorites'),
-  addFavorite: (bookId: string) => api.post('/api/favorites/check/', { book_id: bookId }),
+  addFavorite: (bookId: string) => api.post('/api/favorites', { book_id: bookId }),
   removeFavorite: (bookId: string) => api.delete(`/api/favorites/book/${bookId}`),
   checkIsFavorite: (bookId: string) => api.get<boolean>(`/api/favorites/check/${bookId}`),
 }; 

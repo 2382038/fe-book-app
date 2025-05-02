@@ -126,6 +126,9 @@ const LoginForm = () => {
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
+          <div className='w-full flex justify-center'>
+            <a className='text-blue-500  ' href="/register">Don't have an account ? register</a>
+          </div>
         </form>
       </div>
     </div>

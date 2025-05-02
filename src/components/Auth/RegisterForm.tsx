@@ -166,6 +166,9 @@ const RegisterForm = () => {
             </button>
           </div>
         </form>
+        <div className='w-full flex justify-center'>
+            <a className='text-blue-500  ' href="/login">Already have an account ? login</a>
+          </div>
       </div>
     </div>
   );

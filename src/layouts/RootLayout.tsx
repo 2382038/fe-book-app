@@ -3,11 +3,11 @@ import Navbar from '../components/Navbar'
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="container mx-auto px-4">
+      <main className="py-8">
         <Outlet />
-      </div>
+      </main>
     </div>
   )
 }
